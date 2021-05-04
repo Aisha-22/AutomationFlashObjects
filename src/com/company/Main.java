@@ -2,6 +2,7 @@ package com.company;
 
 import PageObjectModel.LogIn;
 import PageObjectModel.PlacingR3Bet;
+
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.xssf.usermodel.XSSFCell;
@@ -13,16 +14,24 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.sikuli.script.FindFailed;
+import org.sikuli.script.Pattern;
+import org.sikuli.script.Screen;
 
+
+import java.awt.*;
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
+
+
 public class Main {
 
-    public static void main(String[] args) throws IOException, InterruptedException {
+    public static void main(String[] args) throws IOException, InterruptedException, FindFailed {
 
         //To set the path of Chrome driver
         System.setProperty("webdriver.chrome.driver", "C:\\chromedriver_win32\\chromedriver.exe");
@@ -87,12 +96,15 @@ public class Main {
             //Select Aqua Zaka Game
             PlacingR3Bet.AquqZakaGame(driver).click();
 
-            Thread.sleep(3000);
-            //Switching to iFrame
-            new WebDriverWait(driver, 20).until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(By.id("spl_iframe")));
-            System.out.println("3");
+//            Thread.sleep(3000);
+//            //Switching to iFrame
+//            new WebDriverWait(driver, 20).until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(By.id("spl_iframe")));
+            //Create the object of Screen class -Sikuli
+            Screen s = new Screen();
 
-            System.out.println(driver.getPageSource());
+            Pattern soundNO = new Pattern("");
+            s.wait(soundNO, 2000);
+            s.click();
         }
     }
 }

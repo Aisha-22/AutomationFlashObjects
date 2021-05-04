@@ -197,5 +197,6 @@
       </library>
     </orderEntry>
     <orderEntry type="library" name="poi-5.0.0" level="project" />
+    <orderEntry type="library" exported="" name="sikulixapi-2.0.5" level="project" />
   </component>
 </module>
